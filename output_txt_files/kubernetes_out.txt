@@ -1,0 +1,35 @@
+# Prediction
+
+(.devops) MacBook-Pro:project-ml-microservice-kubernetes hemanshuarya$ ./make_prediction.sh 
+Port: 8000
+{
+  "prediction": [
+    20.35373177134412
+  ]
+}
+(.devops) MacBook-Pro:project-ml-microservice-kubernetes hemanshuarya$ 
+
+
+
+# Port Forwarding
+
+MacBook-Pro:project-ml-microservice-kubernetes hemanshuarya$ ./run_kubernetes.sh 
+kubectl run --generator=deployment/apps.v1 is DEPRECATED and will be removed in a future version. Use kubectl run --generator=run-pod/v1 or kubectl create instead.
+Error from server (AlreadyExists): deployments.apps "udacitytask4" already exists
+NAME                            READY   STATUS    RESTARTS   AGE
+udacitytask4-686649d99d-jff8v   1/1     Running   0          10m
+Forwarding from 127.0.0.1:8000 -> 80
+Forwarding from [::1]:8000 -> 80
+Handling connection for 8000
+
+
+# Pod and Deployment status 
+
+MacBook-Pro:project-ml-microservice-kubernetes hemanshuarya$ kubectl get pods
+NAME                            READY   STATUS    RESTARTS   AGE
+udacitytask4-686649d99d-jff8v   1/1     Running   0          15m
+
+MacBook-Pro:project-ml-microservice-kubernetes hemanshuarya$ kubectl get deployments
+NAME           READY   UP-TO-DATE   AVAILABLE   AGE
+udacitytask4   1/1     1            1           15m
+MacBook-Pro:project-ml-microservice-kubernetes hemanshuarya$
